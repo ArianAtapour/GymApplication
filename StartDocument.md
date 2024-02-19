@@ -1,23 +1,24 @@
-# **Weather Data Analysis Application**
+# **Gym Music Application**
 
 ## Introduction
 This document serves as a start document and offers an overview for the practical assignment for the "Threading in C#" course. The purpose of this course is to teach students how to utilise different multi-threading techniques.
 
 ## Application description
-The Weather Data Analysis application is going to fetch the data from a public API (such as IBM or WeatherAPI.com). The data set will contain at least 100.000 results. The processing of the data is going to be done using PLINQ and multi-threading. The results will be able to be seen in a graph. That means a GUI will be present. The user will be able to see on the graph (as data visualization) and filter certain weather conditions that he wants.
-
+The gym music application is going to be a desktop app which purpose is to play music based on the workout and weather outside. So, if you do pushups and it's raining for example, a certain song will be played. It will also display a timer and within that timer play the respective song. The weather it's going to be fetched from a weather API (at least 100.000 entries) and the workouts are going to be introduced by the user as well as their duration. The UI will have two parts. Once it's going to be the user input which it's gonna take the workout type and the time to do the workout. The second part of the UI is after data has been inserted, it's gonna show a screen with the workout and time. Once the user presses start, the workout begins. He can also press pause to pause the workout or stop to reset the workout from the beginning.
 ## Features
-- Fetching data from an API
-- Filtering said data
-- A GUI to see filtered data
-- Visualization of the data
+- User input
+- Fetching data from a weather API
+- Filtering of weather data wether it's raining, etc.
+- A GUI to see workout and timer
+- Pause and Stop of workout
+- Songs played based on weather and type of workout 
 
 ## MoSCoW Analysis
 | Priority      | Task		   |
 | -----------   | ----------- |
 | Must have     | API Fetching, Filtering of data, GUI, Multi-threading|     
-| Should have   | Graph (visualization of data)        |
-| Could have    | Exporting of data        |
+| Should have   | Stop and Pause of workout       |
+| Could have    | List of previous workouts       |
 | Won't have    | User registration, Multiple Language support        |
 
 
@@ -41,7 +42,7 @@ The project is done, when the following requirements are met:
 - All the must have functionalities have been implemented
 
 ## Class Diagram
-![Diagram](diagram.png "Diagram")
+**TO BE DONE**
 
 
 ## About the developers
