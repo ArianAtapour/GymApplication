@@ -67,4 +67,8 @@
 	  <Folder Include="songs\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiAsset Include="song.mp3" />
+	</ItemGroup>
+
 </Project>

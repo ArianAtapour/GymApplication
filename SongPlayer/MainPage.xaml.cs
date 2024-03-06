@@ -14,9 +14,9 @@ public partial class MainPage : ContentPage
 
     private void OnCounterClicked(object sender, EventArgs e)
     {
-        if (mediaElement.CurrentState == CommunityToolkit.Maui.Core.Primitives.MediaElementState.Playing)
-            mediaElement.Pause();
-        else if (mediaElement.CurrentState == CommunityToolkit.Maui.Core.Primitives.MediaElementState.Paused)
-            mediaElement.Play();
+        string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+        string filePath = System.IO.Path.Combine(basePath, "song.mp3");
+        mediaElement.Source = new Uri(filePath);
+        mediaElement.Play();
     }
 }
