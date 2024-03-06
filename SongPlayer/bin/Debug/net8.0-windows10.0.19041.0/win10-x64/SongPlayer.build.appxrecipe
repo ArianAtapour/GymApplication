@@ -43,8 +43,8 @@
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\Resources\Raw\song.mp4">
       <PackagePath>song.mp4</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\song.mp3">
-      <PackagePath>song.mp3</PackagePath>
+    <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\songs\Gragas%3bIevaanPollka%3bSunny.mp3">
+      <PackagePath>songs\Gragas%3bIevaanPollka%3bSunny.mp3</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>

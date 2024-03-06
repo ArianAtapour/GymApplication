@@ -10,10 +10,7 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <toolkit:MediaElement x:Name="mediaElement" WidthRequest="400" HeightRequest="300"
-                                  />
-
-            <!--Source="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"-->
+            <toolkit:MediaElement x:Name="mediaElement" WidthRequest="400" HeightRequest="300" />
 
             <Button
                 x:Name="CounterBtn"
@@ -21,6 +18,23 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+
+            <Button
+                Text="Sunny"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Rainy"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Snowing"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+
+            <Label x:Name="nowPlayingLabel" Text="" HorizontalOptions="Center" />
+            <Label x:Name="totalSongsLabel" Text="Total Songs: Loading..." HorizontalOptions="Center" />
+            <StackLayout x:Name="debugOutputContainer" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
 
         </VerticalStackLayout>
     </ScrollView>

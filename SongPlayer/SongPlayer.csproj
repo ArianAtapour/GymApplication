@@ -64,11 +64,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="songs\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiAsset Include="song.mp3" />
+	  <MauiAsset Include="songs\Gragas%3bIevaanPollka%3bSunny.mp3" />
 	</ItemGroup>
 
 </Project>

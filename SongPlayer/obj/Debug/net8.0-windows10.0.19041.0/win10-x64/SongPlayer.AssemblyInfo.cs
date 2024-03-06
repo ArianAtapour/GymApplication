@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SongPlayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+fe8da92b5d0a24564c25e34aa5d0600450b64cf5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+303397fef638decf612e37cd9b66c7b9d49a74ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("SongPlayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SongPlayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
