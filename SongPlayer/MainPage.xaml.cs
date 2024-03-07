@@ -6,12 +6,14 @@ namespace SongPlayer;
 public partial class MainPage : ContentPage
 {
      List<Song> songs = new List<Song>();
+    private Song previousSong = null;
 
-        public MainPage()
+    public MainPage()
         {
             InitializeComponent();
             LoadSongs();
         }
+    // because debugging is done in god knows what folder, i push it back to project directory because i need it in multiple places
     private string GetProjectDirectory()
     {
         string basePath = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -26,12 +28,12 @@ public partial class MainPage : ContentPage
             }
             else
             {
-                // Handle the case where there are fewer than five parent directories
                 break;
             }
         }
         return parentDirectory;
     }
+    //Loading all songs from the songs folder into an array list
     private void LoadSongs()
     {
         AddDebugMessage("Loading songs...");
@@ -42,7 +44,7 @@ public partial class MainPage : ContentPage
         if (!Directory.Exists(songsDirectory))
         {
             AddDebugMessage("Songs directory not found.");
-            // Handle case where Songs directory doesn't exist
+            // if no directory - die
             return;
         }
 
@@ -56,13 +58,21 @@ public partial class MainPage : ContentPage
 
             try
             {
-                string fileName = Path.GetFileNameWithoutExtension(songFile);
+
+                    if (Path.GetExtension(songFile) != ".mp3")
+                    {
+                        AddDebugMessage($"Skipping non-MP3 file: {songFile}");
+                        // if a file is not mp3 - do not add
+                        continue;
+                    }
+
+                    string fileName = Path.GetFileNameWithoutExtension(songFile);
                 string[] parts = fileName.Split(';');
 
                 if (parts.Length != 3)
                 {
                     AddDebugMessage($"Invalid format for song file: {songFile}. Skipping.");
-                    // Skip files with invalid format
+                    // wrong format of file structure (artist;title;condition.mp3) - do not add
                     continue;
                 }
 
@@ -71,7 +81,7 @@ public partial class MainPage : ContentPage
                 if (!Enum.TryParse(parts[2], out WeatherCondition condition))
                 {
                     AddDebugMessage($"Invalid condition for song file: {songFile}. Skipping.");
-                    // Skip files with invalid condition
+                    // if no registered weather condition - do not add
                     continue;
                 }
 
@@ -87,7 +97,7 @@ public partial class MainPage : ContentPage
         totalSongsLabel.Text = $"Total Songs: {songs.Count}";
         AddDebugMessage($"Total songs loaded: {songs.Count}");
     }
-
+    //pure debugging
     private void AddDebugMessage(string message)
     {
         Label debugLabel = new Label
@@ -99,10 +109,11 @@ public partial class MainPage : ContentPage
     }
 
 
-
+    //just play any random song
     private void OnCounterClicked(object sender, EventArgs e)
     {
-        if (songs.Any())
+        var filteredSongs = songs.Where(song => song != previousSong).ToList();
+        if (filteredSongs.Any())
         {
             Random random = new Random();
             int index = random.Next(songs.Count);
@@ -114,19 +125,23 @@ public partial class MainPage : ContentPage
             mediaElement.Play();
 
             nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
+
+            // making sure the same song wont play twice in a row
+            previousSong = selectedSong;
+
         }
         else
         {
-            // Display a message or handle the case where no songs are available.
+            // nothing when no songs found
         }
     }
-
+    //depending on which weather button clicked, it creates a new array with the condititon specified-only songs and pick one random one from them
     private void OnWeatherButtonClicked(object sender, EventArgs e)
         {
             Button button = sender as Button;
             WeatherCondition condition = (WeatherCondition)Enum.Parse(typeof(WeatherCondition), button.Text);
 
-            var filteredSongs = songs.Where(song => song.Condition == condition).ToList();
+            var filteredSongs = songs.Where(song => song.Condition == condition && song != previousSong).ToList();
             if (filteredSongs.Any())
             {
                 Random random = new Random();
@@ -137,10 +152,13 @@ public partial class MainPage : ContentPage
                 nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
                 mediaElement.Source = new Uri(filePath);
                 mediaElement.Play();
+
+            // making sure the same song wont play twice in a row
+            previousSong = selectedSong;
         }
             else
             {
-                // Display a message or handle the case where no songs are available for the selected weather condition.
+                // nothing when no songs found
             }
         }
 }
