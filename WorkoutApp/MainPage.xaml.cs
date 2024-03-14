@@ -8,7 +8,7 @@ namespace WorkoutApp
     {
         private ObservableCollection<Exercise> exercises = new ObservableCollection<Exercise>();
         private ObservableCollection<Workout> workouts = new ObservableCollection<Workout>();
-        private Workout currentWorkout; 
+        private Workout workout; 
 
         public MainPage()
         {
@@ -26,9 +26,18 @@ namespace WorkoutApp
                 return;
             }
 
-            int hours = string.IsNullOrEmpty(hoursDurationEntry.Text) ? 0 : int.Parse(hoursDurationEntry.Text);
-            int minutes = string.IsNullOrEmpty(minutesDurationEntry.Text) ? 0 : int.Parse(minutesDurationEntry.Text);
-            int seconds = string.IsNullOrEmpty(secondsDurationEntry.Text) ? 0 : int.Parse(secondsDurationEntry.Text);
+            if (!int.TryParse(hoursDurationEntry.Text, out int hours) || !int.TryParse(minutesDurationEntry.Text, out int minutes) || !int.TryParse(secondsDurationEntry.Text, out int seconds))
+            {
+                DisplayAlert("Error", "Please enter valid time values", "OK");
+                return;
+            }
+
+            // Check if time values are non-negative and greater than zero
+            if (hours < 0 || minutes < 0 || seconds < 0)
+            {
+                DisplayAlert("Error", "Time values cannot be negative", "OK");
+                return;
+            }
 
             TimeSpan duration = TimeSpan.FromHours(hours) + TimeSpan.FromMinutes(minutes) + TimeSpan.FromSeconds(seconds);
             exercises.Add(new Exercise(exerciseNameEntry.Text, duration));
@@ -52,6 +61,11 @@ namespace WorkoutApp
             workouts.Add(workout);
             exercises.Clear();
             DisplayAlert("Success", "Workout saved successfully", "OK");
+        }
+
+        private void OnBeginWorkoutClicked(object sender, EventArgs e)
+        {
+            // This method currently does nothing for now.
         }
     }
 }

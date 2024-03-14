@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Collections.ObjectModel;
 
 class Workout
 {
@@ -8,28 +8,28 @@ class Workout
         get
         {
             TimeSpan totalDuration = TimeSpan.Zero;
-            foreach (Exercise exercise in exercises)
+            foreach (Exercise exercise in Exercises)
             {
                 totalDuration += exercise.Duration;
             }
             return totalDuration;
         }
     }
-    private ArrayList exercises;
+    public ObservableCollection<Exercise> Exercises { get; private set; }
 
     public Workout(string workoutName)
     {
         WorkoutName = workoutName;
-        exercises = new ArrayList();
+        Exercises = new ObservableCollection<Exercise>();
     }
 
     public void AddExercise(Exercise exercise)
     {
-        exercises.Add(exercise);
+        Exercises.Add(exercise);
     }
 
     public void RemoveExercise(Exercise exercise)
     {
-        exercises.Remove(exercise);
+        Exercises.Remove(exercise);
     }
 }

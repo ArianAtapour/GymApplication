@@ -5,23 +5,18 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,0"
+            Padding="30"
             Spacing="25">
-
-            <Label
-                Text="Workout Name: " />
-            <Entry 
-                x:Name="workoutNameEntry" Placeholder="Enter workout name" />
-
 
             <Label
                 Text="Exercise Name: " />
             <Entry 
-                x:Name="exerciseNameEntry" Placeholder="Enter workout name" />
+                x:Name="exerciseNameEntry" Placeholder="Enter Exercise Name" />
 
+            <Label
+                    Text="Exercise Duration: " Padding="0,30,0,0"/>
             <StackLayout Orientation="Horizontal">
-                <Label
-                    Text="Exercise Duration: " />
+                
                 <Entry 
                     x:Name="hoursDurationEntry" Placeholder="Hours" Keyboard="Numeric" />
                 <Label 
@@ -40,6 +35,19 @@
                 SemanticProperties.Hint="Adds Exercise to the Workout"
                 Clicked="OnAddExerciseClicked"
                 HorizontalOptions="Fill" />
+            
+            <ListView x:Name="exerciseListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Duration}"  />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Label
+                Text="Workout Name: " />
+            <Entry 
+                x:Name="workoutNameEntry" Placeholder="Enter Workout Name" />
 
             <Button
                 x:Name="saveWorkoutButton"
@@ -48,21 +56,33 @@
                 Clicked="OnSaveWorkoutClicked"
                 HorizontalOptions="Fill" />
 
-            <ListView x:Name="exerciseListView">
+            <ListView x:Name="workoutListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}" Detail="{Binding Duration}" />
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding WorkoutName}" />
+                                <Label Text="{Binding TotalDuration}" />
+                                <ListView ItemsSource="{Binding Exercises}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextCell Text="{Binding Name}" Detail="{Binding Duration}" />
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView x:Name="workoutListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding WorkoutName}" Detail="{Binding TotalDuration}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Button
+                x:Name="beginWorkoutButton"
+                Text="Begin Workout" 
+                SemanticProperties.Hint="Begins the Workout"
+                Clicked="OnBeginWorkoutClicked"
+                HorizontalOptions="Fill" />
 
         </VerticalStackLayout>
     </ScrollView>
