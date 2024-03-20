@@ -54,9 +54,10 @@ namespace WorkoutApp
                 }
                 else
                 {
-                    if (workoutIndex < workouts.Count - 1)
+                    var nextWorkoutIndex = workoutIndex + 1;
+                    if (nextWorkoutIndex < workouts.Count)
                     {
-                        workoutIndex++;
+                        workoutIndex = nextWorkoutIndex;
                         currentWorkout = workouts[workoutIndex];
                         exerciseIndex = 0;
                         currentExercise = currentWorkout.Exercises[exerciseIndex];
@@ -75,6 +76,7 @@ namespace WorkoutApp
                 }
             }
         }
+
 
         private void Start_Click(object sender, EventArgs e)
         {
@@ -99,7 +101,6 @@ namespace WorkoutApp
             exerciseTime = currentExercise?.Duration ?? TimeSpan.Zero;
             UpdateUI();
 
-            // Display "Workout Finished"
             Device.InvokeOnMainThreadAsync(() =>
             {
                 exerciseLabel.Text = "WORKOUT FINISHED";
@@ -109,12 +110,23 @@ namespace WorkoutApp
 
         private void UpdateUI()
         {
-            if (currentWorkout != null)
+            Device.BeginInvokeOnMainThread(() =>
             {
-                workoutNameLabel.Text = "Workout Name: " + currentWorkout.WorkoutName;
-                exerciseLabel.Text = "Exercise: " + (currentExercise?.Name ?? "No exercise");
-                timerLabel.Text = exerciseTime.ToString(@"hh\:mm\:ss");
-            }
+                if (currentWorkout != null)
+                {
+                    workoutNameLabel.Text = "Workout Name: " + (currentWorkout.WorkoutName ?? "No workout name");
+                    exerciseLabel.Text = "Exercise: " + (currentExercise?.Name ?? "No exercise");
+                    timerLabel.Text = exerciseTime.ToString(@"hh\:mm\:ss");
+                }
+                else
+                {
+                    workoutNameLabel.Text = "No workout selected";
+                    exerciseLabel.Text = "No exercise";
+                    timerLabel.Text = "00:00:00";
+                }
+            });
         }
+
+
     }
 }

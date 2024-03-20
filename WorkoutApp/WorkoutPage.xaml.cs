@@ -89,12 +89,10 @@ namespace WorkoutApp
             {
                 selectedWorkouts.Add(selectedWorkout);
             }
-            else
-            {
-                selectedWorkouts.Remove(selectedWorkout);
-            }
-         ((ListView)sender).SelectedItem = null;
+
+            ((ListView)sender).SelectedItem = null;
         }
+
 
 
 
