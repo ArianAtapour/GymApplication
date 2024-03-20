@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="SongPlayer.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <toolkit:MediaElement x:Name="mediaElement" WidthRequest="400" HeightRequest="300" />
+
+            <Button
+                x:Name="RandomSong"
+                Text="Random song"
+                Clicked="OnRandomSongClicked"
+                HorizontalOptions="Center" />
+
+            <Button
+                Text="Clear"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Rain"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Snow"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Thunderstorm"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Athomsphere"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Clouds"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Drizzle"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+
+            <Label x:Name="nowPlayingLabel" Text="" HorizontalOptions="Center" />
+            <Label x:Name="totalSongsLabel" Text="Total Songs: Loading..." HorizontalOptions="Center" />
+            <StackLayout x:Name="debugOutputContainer" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
