@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Nathan\\OneDrive - NHL Stenden\\NHL Uni work\\C#3\\GymApplication\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{866F48BD-9CB0-4C0E-B6BD-E794020EEAFA}|MauiApp2.csproj|c:\\users\\nathan\\onedrive - nhl stenden\\nhl uni work\\c#3\\gymapplication\\weatherdata.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{866F48BD-9CB0-4C0E-B6BD-E794020EEAFA}|MauiApp2.csproj|solutionrelative:weatherdata.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{866F48BD-9CB0-4C0E-B6BD-E794020EEAFA}|MauiApp2.csproj|c:\\users\\nathan\\onedrive - nhl stenden\\nhl uni work\\c#3\\gymapplication\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{866F48BD-9CB0-4C0E-B6BD-E794020EEAFA}|MauiApp2.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{866F48BD-9CB0-4C0E-B6BD-E794020EEAFA}|MauiApp2.csproj|c:\\users\\nathan\\onedrive - nhl stenden\\nhl uni work\\c#3\\gymapplication\\weatherdata.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{866F48BD-9CB0-4C0E-B6BD-E794020EEAFA}|MauiApp2.csproj|solutionrelative:weatherdata.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,6 +43,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "WeatherData.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Nathan\\OneDrive - NHL Stenden\\NHL Uni work\\C#3\\GymApplication\\WeatherData.xaml.cs",
+              "RelativeDocumentMoniker": "WeatherData.xaml.cs",
+              "ToolTip": "C:\\Users\\Nathan\\OneDrive - NHL Stenden\\NHL Uni work\\C#3\\GymApplication\\WeatherData.xaml.cs",
+              "RelativeToolTip": "WeatherData.xaml.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAgwDUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T11:04:49.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeatherData.xaml",
+              "DocumentMoniker": "C:\\Users\\Nathan\\OneDrive - NHL Stenden\\NHL Uni work\\C#3\\GymApplication\\WeatherData.xaml",
+              "RelativeDocumentMoniker": "WeatherData.xaml",
+              "ToolTip": "C:\\Users\\Nathan\\OneDrive - NHL Stenden\\NHL Uni work\\C#3\\GymApplication\\WeatherData.xaml",
+              "RelativeToolTip": "WeatherData.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-20T11:04:33.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MauiProgram.cs",
               "DocumentMoniker": "C:\\Users\\Nathan\\OneDrive - NHL Stenden\\NHL Uni work\\C#3\\GymApplication\\MauiProgram.cs",
               "RelativeDocumentMoniker": "MauiProgram.cs",

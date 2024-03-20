@@ -60,10 +60,17 @@ namespace MauiApp2
             return data;
         }
 
-
         private async void OnSearchClicked(object sender, EventArgs e)
         {
-            string filePath = "C:\\Users\\Nathan\\OneDrive - NHL Stenden\\NHL Uni work\\C# Resit\\Final Resit Exam\\MauiApp2\\MauiApp2\\cities.csv";
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string targetPath = Path.GetDirectoryName(basePath); 
+
+            while (Path.GetFileName(targetPath) != "GymApplication" && !string.IsNullOrEmpty(targetPath))
+            {
+                targetPath = Path.GetDirectoryName(targetPath); // Go up one more directory
+            }
+
+            string filePath = Path.GetFullPath(Path.Combine(targetPath, "cities.csv")); 
             
             await GetWeatherAsync();
 
