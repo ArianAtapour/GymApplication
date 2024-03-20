@@ -1,16 +1,19 @@
 ﻿using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
+using Microsoft.Maui.Controls;
 
 namespace SongPlayer;
 
 public partial class MainPage : ContentPage
 {
-     List<Song> songs = new List<Song>();
+    WeatherDataModule weatherDataModule;
+    List<Song> songs = new List<Song>();
     private Song previousSong = null;
 
     public MainPage()
         {
             InitializeComponent();
+            weatherDataModule = new WeatherDataModule();
             LoadSongs();
         }
     // because debugging is done in god knows what folder, i push it back to project directory because i need it in multiple places
@@ -33,6 +36,8 @@ public partial class MainPage : ContentPage
         }
         return parentDirectory;
     }
+
+
     //Loading all songs from the songs folder into an array list
     private void LoadSongs()
     {
@@ -78,14 +83,14 @@ public partial class MainPage : ContentPage
 
                 string artist = parts[0];
                 string title = parts[1];
-                if (!Enum.TryParse(parts[2], out WeatherCondition condition))
+                if (!Enum.TryParse(parts[2], out Genre genre))
                 {
                     AddDebugMessage($"Invalid condition for song file: {songFile}. Skipping.");
                     // if no registered weather condition - do not add
                     continue;
                 }
 
-                songs.Add(new Song { Title = title, Artist = artist, Condition = condition });
+                songs.Add(new Song { Title = title, Artist = artist, Genre = genre });
                 AddDebugMessage($"Song loaded: {artist} - {title}");
             }
             catch (Exception ex)
@@ -119,7 +124,7 @@ public partial class MainPage : ContentPage
             int index = random.Next(songs.Count);
             var selectedSong = songs[index];
 
-            string filePath = System.IO.Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist};{selectedSong.Title};{selectedSong.Condition}.mp3");
+            string filePath = System.IO.Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist};{selectedSong.Title};{selectedSong.Genre}.mp3");
             AddDebugMessage(filePath);
             mediaElement.Source = new Uri(filePath);
             mediaElement.Play();
@@ -135,30 +140,38 @@ public partial class MainPage : ContentPage
             // nothing when no songs found
         }
     }
-    //depending on which weather button clicked, it creates a new array with the condititon specified-only songs and pick one random one from them
-    private void OnWeatherButtonClicked(object sender, EventArgs e)
+    private void PlayGenre(string genre)
+    {
+
+    }
+    private async void OnGetGenreButtonClicked(object sender, EventArgs e)
+    {
+        string genre;
+        AddDebugMessage(weatherDataModule.country);
+        AddDebugMessage(weatherDataModule.city);
+        genre = await weatherDataModule.SearchForGenre();
+        AddDebugMessage(genre);
+
+        Genre ParsedGenre = (Genre)Enum.Parse (typeof(Genre), genre);
+        var filteredSongs = songs.Where(song => song.Genre == ParsedGenre && song != previousSong).ToList();
+        if (filteredSongs.Any())
         {
-            Button button = sender as Button;
-            WeatherCondition condition = (WeatherCondition)Enum.Parse(typeof(WeatherCondition), button.Text);
+            Random random = new Random();
+            int index = random.Next(filteredSongs.Count);
+            var selectedSong = filteredSongs[index];
 
-            var filteredSongs = songs.Where(song => song.Condition == condition && song != previousSong).ToList();
-            if (filteredSongs.Any())
-            {
-                Random random = new Random();
-                int index = random.Next(filteredSongs.Count);
-                var selectedSong = filteredSongs[index];
-
-                string filePath = System.IO.Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist};{selectedSong.Title};{selectedSong.Condition}.mp3");
-                nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
-                mediaElement.Source = new Uri(filePath);
-                mediaElement.Play();
+            string filePath = System.IO.Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist};{selectedSong.Title};{selectedSong.Genre}.mp3");
+            nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
+            mediaElement.Source = new Uri(filePath);
+            mediaElement.Play();
 
             // making sure the same song wont play twice in a row
             previousSong = selectedSong;
         }
-            else
-            {
-                // nothing when no songs found
-            }
+        else
+        {
+            // nothing when no songs found
         }
+
+    }
 }

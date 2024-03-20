@@ -29,273 +29,273 @@
     <AppXManifest Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-03-20T10:52:46.994</Modified>
+      <Modified>2024-03-20T12:26:28.611</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-03-20T10:47:37.449</Modified>
+      <Modified>2024-03-20T12:26:28.526</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SongPlayer.runtimeconfig.json">
       <PackagePath>SongPlayer.runtimeconfig.json</PackagePath>
-      <Modified>2024-03-13T09:48:17.570</Modified>
+      <Modified>2024-03-20T12:11:56.075</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SongPlayer.dll">
       <PackagePath>SongPlayer.dll</PackagePath>
-      <Modified>2024-03-20T10:52:46.589</Modified>
+      <Modified>2024-03-20T12:26:27.838</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>SongPlayer.exe</PackagePath>
-      <Modified>2024-03-20T10:52:46.650</Modified>
+      <Modified>2024-03-20T12:26:28.244</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
-      <Modified>2024-03-13T09:47:24.947</Modified>
+      <Modified>2024-03-20T11:55:41.814</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\Resources\Raw\song.mp4">
       <PackagePath>song.mp4</PackagePath>
-      <Modified>2024-03-13T09:47:25.004</Modified>
+      <Modified>2024-03-20T11:55:41.840</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\songs\Gragas%3bIevaanPollka%3bDrizzle.mp3">
       <PackagePath>songs\Gragas%3bIevaanPollka%3bDrizzle.mp3</PackagePath>
-      <Modified>2024-03-13T09:47:36.831</Modified>
+      <Modified>2024-03-20T11:55:44.289</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.757</Modified>
+      <Modified>2024-03-20T11:55:44.249</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.758</Modified>
+      <Modified>2024-03-20T11:55:44.250</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.758</Modified>
+      <Modified>2024-03-20T11:55:44.250</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.758</Modified>
+      <Modified>2024-03-20T11:55:44.251</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.759</Modified>
+      <Modified>2024-03-20T11:55:44.252</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
-      <Modified>2024-03-13T09:47:36.729</Modified>
+      <Modified>2024-03-20T11:55:44.108</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
       <PackagePath>OpenSans-Semibold.ttf</PackagePath>
-      <Modified>2024-03-13T09:47:36.730</Modified>
+      <Modified>2024-03-20T11:55:44.110</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
-      <Modified>2024-03-13T09:47:36.735</Modified>
+      <Modified>2024-03-20T11:55:44.111</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.735</Modified>
+      <Modified>2024-03-20T11:55:44.111</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.736</Modified>
+      <Modified>2024-03-20T11:55:44.112</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.736</Modified>
+      <Modified>2024-03-20T11:55:44.112</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.737</Modified>
+      <Modified>2024-03-20T11:55:44.113</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.737</Modified>
+      <Modified>2024-03-20T11:55:44.113</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.738</Modified>
+      <Modified>2024-03-20T11:55:44.114</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.738</Modified>
+      <Modified>2024-03-20T11:55:44.115</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.739</Modified>
+      <Modified>2024-03-20T11:55:44.116</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.739</Modified>
+      <Modified>2024-03-20T11:55:44.116</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.740</Modified>
+      <Modified>2024-03-20T11:55:44.117</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.740</Modified>
+      <Modified>2024-03-20T11:55:44.118</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.741</Modified>
+      <Modified>2024-03-20T11:55:44.226</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.741</Modified>
+      <Modified>2024-03-20T11:55:44.227</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.741</Modified>
+      <Modified>2024-03-20T11:55:44.228</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.742</Modified>
+      <Modified>2024-03-20T11:55:44.228</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.742</Modified>
+      <Modified>2024-03-20T11:55:44.228</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.742</Modified>
+      <Modified>2024-03-20T11:55:44.229</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.742</Modified>
+      <Modified>2024-03-20T11:55:44.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.742</Modified>
+      <Modified>2024-03-20T11:55:44.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.743</Modified>
+      <Modified>2024-03-20T11:55:44.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.743</Modified>
+      <Modified>2024-03-20T11:55:44.231</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.744</Modified>
+      <Modified>2024-03-20T11:55:44.231</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.744</Modified>
+      <Modified>2024-03-20T11:55:44.232</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.744</Modified>
+      <Modified>2024-03-20T11:55:44.232</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.745</Modified>
+      <Modified>2024-03-20T11:55:44.233</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.745</Modified>
+      <Modified>2024-03-20T11:55:44.233</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.745</Modified>
+      <Modified>2024-03-20T11:55:44.234</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.746</Modified>
+      <Modified>2024-03-20T11:55:44.235</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.746</Modified>
+      <Modified>2024-03-20T11:55:44.235</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.747</Modified>
+      <Modified>2024-03-20T11:55:44.236</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.747</Modified>
+      <Modified>2024-03-20T11:55:44.236</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.748</Modified>
+      <Modified>2024-03-20T11:55:44.237</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.748</Modified>
+      <Modified>2024-03-20T11:55:44.237</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.748</Modified>
+      <Modified>2024-03-20T11:55:44.238</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.749</Modified>
+      <Modified>2024-03-20T11:55:44.239</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.749</Modified>
+      <Modified>2024-03-20T11:55:44.239</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.749</Modified>
+      <Modified>2024-03-20T11:55:44.240</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.750</Modified>
+      <Modified>2024-03-20T11:55:44.240</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.750</Modified>
+      <Modified>2024-03-20T11:55:44.241</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.751</Modified>
+      <Modified>2024-03-20T11:55:44.242</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.751</Modified>
+      <Modified>2024-03-20T11:55:44.242</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.752</Modified>
+      <Modified>2024-03-20T11:55:44.243</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.752</Modified>
+      <Modified>2024-03-20T11:55:44.243</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.753</Modified>
+      <Modified>2024-03-20T11:55:44.244</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.753</Modified>
+      <Modified>2024-03-20T11:55:44.244</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.753</Modified>
+      <Modified>2024-03-20T11:55:44.244</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.754</Modified>
+      <Modified>2024-03-20T11:55:44.245</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.755</Modified>
+      <Modified>2024-03-20T11:55:44.246</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.755</Modified>
+      <Modified>2024-03-20T11:55:44.246</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
-      <Modified>2024-03-13T09:47:36.757</Modified>
+      <Modified>2024-03-20T11:55:44.248</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\Desktop\GymApplication\SongPlayer\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SongPlayer.deps.json">
       <PackagePath>SongPlayer.deps.json</PackagePath>
-      <Modified>2024-03-20T10:47:37.391</Modified>
+      <Modified>2024-03-20T12:11:55.952</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\voras\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>

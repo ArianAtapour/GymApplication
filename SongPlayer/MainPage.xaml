@@ -17,34 +17,9 @@
                 Text="Random song"
                 Clicked="OnRandomSongClicked"
                 HorizontalOptions="Center" />
-
             <Button
-                Text="Clear"
-                Clicked="OnWeatherButtonClicked"
-                HorizontalOptions="Center" />
-            <Button
-                Text="Rain"
-                Clicked="OnWeatherButtonClicked"
-                HorizontalOptions="Center" />
-            <Button
-                Text="Snow"
-                Clicked="OnWeatherButtonClicked"
-                HorizontalOptions="Center" />
-            <Button
-                Text="Thunderstorm"
-                Clicked="OnWeatherButtonClicked"
-                HorizontalOptions="Center" />
-            <Button
-                Text="Athomsphere"
-                Clicked="OnWeatherButtonClicked"
-                HorizontalOptions="Center" />
-            <Button
-                Text="Clouds"
-                Clicked="OnWeatherButtonClicked"
-                HorizontalOptions="Center" />
-            <Button
-                Text="Drizzle"
-                Clicked="OnWeatherButtonClicked"
+                Text="Get Genre"
+                Clicked="OnGetGenreButtonClicked"
                 HorizontalOptions="Center" />
 
             <Label x:Name="nowPlayingLabel" Text="" HorizontalOptions="Center" />

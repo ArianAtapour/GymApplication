@@ -10,6 +10,6 @@ namespace SongPlayer
     {
         public string Title { get; set; }
         public string Artist { get; set; }
-        public WeatherCondition Condition { get; set; }
+        public Genre Genre { get; set; }
     }
 }
