@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SongPlayer
 {
-    public enum WeatherCondition
+    public enum Genre
     {
-        Thunderstorm,
-        Drizzle,
-        Rain,
-        Snow,
-        Athmosphere,
-        Clear,
-        Clouds
+        Rock,
+        Jazz,
+        Indie,
+        RnB,
+        DrumNBase,
+        Pop,
+        Rap
     }
 }

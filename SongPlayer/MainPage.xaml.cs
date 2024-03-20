@@ -110,7 +110,7 @@ public partial class MainPage : ContentPage
 
 
     //just play any random song
-    private void OnCounterClicked(object sender, EventArgs e)
+    private void OnRandomSongClicked(object sender, EventArgs e)
     {
         var filteredSongs = songs.Where(song => song != previousSong).ToList();
         if (filteredSongs.Any())

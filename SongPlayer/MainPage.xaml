@@ -13,22 +13,37 @@
             <toolkit:MediaElement x:Name="mediaElement" WidthRequest="400" HeightRequest="300" />
 
             <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                x:Name="RandomSong"
+                Text="Random song"
+                Clicked="OnRandomSongClicked"
                 HorizontalOptions="Center" />
 
             <Button
-                Text="Sunny"
+                Text="Clear"
                 Clicked="OnWeatherButtonClicked"
                 HorizontalOptions="Center" />
             <Button
-                Text="Rainy"
+                Text="Rain"
                 Clicked="OnWeatherButtonClicked"
                 HorizontalOptions="Center" />
             <Button
-                Text="Snowing"
+                Text="Snow"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Thunderstorm"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Athomsphere"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Clouds"
+                Clicked="OnWeatherButtonClicked"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Drizzle"
                 Clicked="OnWeatherButtonClicked"
                 HorizontalOptions="Center" />
 

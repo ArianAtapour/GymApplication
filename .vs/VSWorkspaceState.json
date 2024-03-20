@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SongPlayer"
   ],
+  "SelectedNode": "\\SongPlayer\\App.xaml.cs",
   "PreviewInSolutionExplorer": false
 }
