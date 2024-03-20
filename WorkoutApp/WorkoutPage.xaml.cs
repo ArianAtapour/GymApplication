@@ -4,19 +4,22 @@ using System.Collections.ObjectModel;
 
 namespace WorkoutApp
 {
-    public partial class MainPage : ContentPage
+    public partial class WorkoutPage : ContentPage
     {
         private ObservableCollection<Exercise> exercises = new ObservableCollection<Exercise>();
         private ObservableCollection<Workout> workouts = new ObservableCollection<Workout>();
-        private Workout workout; 
+        private List<Workout> selectedWorkouts = new List<Workout>();
 
-        public MainPage()
+        public WorkoutPage()
         {
             InitializeComponent();
             exerciseListView.ItemsSource = exercises;
             workoutListView.ItemsSource = workouts;
-        }
 
+            workoutListView.ItemSelected += OnWorkoutItemSelected;
+
+            workoutListView.SelectionMode = (ListViewSelectionMode)SelectionMode.Multiple;
+        }
         private void OnAddExerciseClicked(object sender, EventArgs e)
         {
             string exerciseName = exerciseNameEntry.Text;
@@ -32,7 +35,6 @@ namespace WorkoutApp
                 return;
             }
 
-            // Check if time values are non-negative and greater than zero
             if (hours < 0 || minutes < 0 || seconds < 0)
             {
                 DisplayAlert("Error", "Time values cannot be negative", "OK");
@@ -63,9 +65,39 @@ namespace WorkoutApp
             DisplayAlert("Success", "Workout saved successfully", "OK");
         }
 
-        private void OnBeginWorkoutClicked(object sender, EventArgs e)
+        private async void OnBeginWorkoutClicked(object sender, EventArgs e)
         {
-            // This method currently does nothing for now.
+            if (selectedWorkouts.Count == 0)
+            {
+                await DisplayAlert("Error", "Please select at least one workout.", "OK");
+                return;
+            }
+
+            
+            var gymApplication = new GymApplication(selectedWorkouts);
+            await Navigation.PushAsync(gymApplication);
         }
+
+        private void OnWorkoutItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+
+            var selectedWorkout = e.SelectedItem as Workout;
+
+            if (!selectedWorkouts.Contains(selectedWorkout))
+            {
+                selectedWorkouts.Add(selectedWorkout);
+            }
+            else
+            {
+                selectedWorkouts.Remove(selectedWorkout);
+            }
+         ((ListView)sender).SelectedItem = null;
+        }
+
+
+
+
     }
 }

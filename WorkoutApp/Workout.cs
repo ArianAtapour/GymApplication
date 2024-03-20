@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-class Workout
+public class Workout
 {
     public string WorkoutName { get; set; }
     public TimeSpan TotalDuration
