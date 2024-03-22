@@ -19,15 +19,15 @@
             <StackLayout Orientation="Horizontal">
                 
                 <Entry 
-                    x:Name="hoursDurationEntry" Placeholder="Hours" Keyboard="Numeric" Text="0" />
+                    x:Name="hoursDurationEntry" Placeholder="Hours" Keyboard="Numeric" />
                 <Label 
                     Text=":" VerticalOptions="Center" />
                 <Entry 
-                    x:Name="minutesDurationEntry" Placeholder="Minutes" Keyboard="Numeric" Text="0" />
+                    x:Name="minutesDurationEntry" Placeholder="Minutes" Keyboard="Numeric" />
                 <Label 
                     Text=":" VerticalOptions="Center" />
                 <Entry 
-                    x:Name="secondsDurationEntry" Placeholder="Seconds" Keyboard="Numeric" Text="0" />
+                    x:Name="secondsDurationEntry" Placeholder="Seconds" Keyboard="Numeric" />
             </StackLayout>
 
             <Button

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
-using Timer = System.Threading.Timer;
 
 namespace WorkoutApp
 {
@@ -20,13 +19,10 @@ namespace WorkoutApp
         private readonly WeatherDataModule _weatherDataModule;
         private readonly List<Song> _songs = new List<Song>();
         private Song _previousSong;
-        private Timer _playbackTimer;
-        private Genre _previousGenre;
 
         public GymApplication(List<Workout> workouts)
         {
             InitializeComponent();
-            _playbackTimer = new Timer(PlaybackTimer_Tick, null, Timeout.Infinite, Timeout.Infinite);
             this.workouts = workouts;
             workoutIndex = 0;
             exerciseIndex = 0;
@@ -40,11 +36,6 @@ namespace WorkoutApp
             timer = new System.Timers.Timer(1000);
             timer.Elapsed += Timer_Elapsed;
             exerciseTime = currentExercise?.Duration ?? TimeSpan.Zero;
-        }
-
-        private void PlaybackTimer_Tick(object state)
-        {
-            PlaySong(_previousGenre);
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -240,13 +231,12 @@ namespace WorkoutApp
                 nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
                 mediaElement.Source = new Uri(filePath);
                 mediaElement.Play();
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 469068d (threading broke me)
 
                 _previousSong = selectedSong;
-                _previousGenre = genre;
-
-                // Set the timer interval to the duration of the song
-                _playbackTimer.Change((int)mediaElement.Duration.TotalMilliseconds, Timeout.Infinite);
             }
             else
             {
