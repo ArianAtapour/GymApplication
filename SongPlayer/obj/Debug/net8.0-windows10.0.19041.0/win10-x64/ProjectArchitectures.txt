@@ -1,0 +1,1 @@
+C:\Users\voras\Desktop\GymApplication\SongPlayer\SongPlayer.csproj;x64
