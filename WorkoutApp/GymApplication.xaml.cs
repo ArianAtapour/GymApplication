@@ -148,17 +148,13 @@ namespace WorkoutApp
         private string GetProjectDirectory()
         {
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            string parentDirectory = basePath;
+            string targetPath = Path.GetDirectoryName(basePath);
 
-            for (int i = 0; i < 6; i++)
+            while (Path.GetFileName(targetPath) != "WorkoutApp" && !string.IsNullOrEmpty(targetPath))
             {
-                DirectoryInfo parentInfo = Directory.GetParent(parentDirectory);
-                if (parentInfo != null)
-                    parentDirectory = parentInfo.FullName;
-                else
-                    break;
+                targetPath = Path.GetDirectoryName(targetPath); // Go up one more directory
             }
-            return parentDirectory;
+            return targetPath;
         }
 
         private void LoadSongs()
@@ -241,12 +237,10 @@ namespace WorkoutApp
                 var selectedSong = filteredSongs[index];
 
                 string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist};{selectedSong.Title};{selectedSong.Genre}.mp3");
-                Device.InvokeOnMainThreadAsync(() =>
-                {
-                    nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
-                    mediaElement.Source = new Uri(filePath);
-                    mediaElement.Play();
-                });
+                nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
+                mediaElement.Source = new Uri(filePath);
+                mediaElement.Play();
+
 
                 _previousSong = selectedSong;
                 _previousGenre = genre;
