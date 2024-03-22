@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkoutApp.WorkoutPage"
+             Title="Workout Creation">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="25">
+
+            <Label
+                Text="Exercise Name: " />
+            <Entry 
+                x:Name="exerciseNameEntry" Placeholder="Enter Exercise Name" />
+
+            <Label
+                    Text="Exercise Duration: " Padding="0,30,0,0"/>
+            <StackLayout Orientation="Horizontal">
+                
+                <Entry 
+                    x:Name="hoursDurationEntry" Placeholder="Hours" Keyboard="Numeric" />
+                <Label 
+                    Text=":" VerticalOptions="Center" />
+                <Entry 
+                    x:Name="minutesDurationEntry" Placeholder="Minutes" Keyboard="Numeric" />
+                <Label 
+                    Text=":" VerticalOptions="Center" />
+                <Entry 
+                    x:Name="secondsDurationEntry" Placeholder="Seconds" Keyboard="Numeric" />
+            </StackLayout>
+
+            <Button
+                x:Name="addExerciseButton"
+                Text="Add Exercise" 
+                SemanticProperties.Hint="Adds Exercise to the Workout"
+                Clicked="OnAddExerciseClicked"
+                HorizontalOptions="Fill" />
+            
+            <ListView x:Name="exerciseListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Duration}"  />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Label
+                Text="Workout Name: " />
+            <Entry 
+                x:Name="workoutNameEntry" Placeholder="Enter Workout Name" />
+
+            <Button
+                x:Name="saveWorkoutButton"
+                Text="Save Workout" 
+                SemanticProperties.Hint="Saves the Workout"
+                Clicked="OnSaveWorkoutClicked"
+                HorizontalOptions="Fill" />
+
+            <ListView x:Name="workoutListView" ItemSelected="OnWorkoutItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding WorkoutName}" />
+                                <Label Text="{Binding TotalDuration}" />
+                                <ListView ItemsSource="{Binding Exercises}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextCell Text="{Binding Name}" Detail="{Binding Duration}" />
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                
+
+            <Button
+                x:Name="beginWorkoutButton"
+                Text="Begin Workout" 
+                SemanticProperties.Hint="Begins the Workout"
+                Clicked="OnBeginWorkoutClicked"
+                HorizontalOptions="Fill" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

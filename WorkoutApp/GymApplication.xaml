@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="WorkoutApp.GymApplication"
+             Title="Gym Application">
+    <ScrollView>
+        <VerticalStackLayout
+          VerticalOptions="Center" HorizontalOptions="Center">
+            <Label x:Name="workoutNameLabel" Text="Workout Name: " />
+            <Label x:Name="exerciseLabel" Text="Exercise: " />
+            <Label x:Name="timerLabel" Text="00:00:00" />
+            <Button x:Name="startButton" Text="Start" Clicked="Start_Click" />
+            <Button x:Name="pauseButton" Text="Pause" Clicked="Pause_Click" />
+            <Button x:Name="stopButton" Text="Stop" Clicked="Stop_Click" />
+
+            <Label x:Name="nowPlayingLabel" Text="" HorizontalOptions="Center" />
+            <Label x:Name="totalSongsLabel" Text="Total Songs: Loading..." HorizontalOptions="Center" />
+            <toolkit:MediaElement x:Name="mediaElement" WidthRequest="400" HeightRequest="300" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
