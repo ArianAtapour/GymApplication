@@ -2,6 +2,7 @@
 using SongPlayer;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Timers;
 
@@ -70,19 +71,37 @@ namespace WorkoutApp
                         exerciseTime = currentExercise.Duration;
                         UpdateUI();
                         timer.Start();
+                        //When switching workouts we call this method to change the songs
+                        ChangeSong();
                     }
                     else
                     {
-                        Device.InvokeOnMainThreadAsync(() =>
+                        Device.BeginInvokeOnMainThread(async () =>
                         {
                             exerciseLabel.Text = "ALL WORKOUTS FINISHED";
                             timerLabel.Text = "00:00:00";
+                            //When all workouts finish we call the method asynchronously to change the song (cause why not let a man listen to music)
+                            await ChangeSongAsync();
                         });
                     }
                 }
             }
         }
 
+        // Change the method to asynchronous to make sure it's awaited properly
+        private async Task ChangeSongAsync()
+        {
+            //Deleay the change of the song so you give the UI proper time to update
+            await Task.Delay(100);
+            //Play me a random song
+            OnRandomSongClicked(null, null);
+        }
+
+        private void ChangeSong()
+        {
+            //Play a random song
+            OnRandomSongClicked(null, null);
+        }
 
         private void Start_Click(object sender, EventArgs e)
         {
@@ -154,7 +173,7 @@ namespace WorkoutApp
 
             if (!Directory.Exists(songsDirectory))
             {
-                  return;
+                return;
             }
 
             string[] songFiles = Directory.GetFiles(songsDirectory);
@@ -198,26 +217,44 @@ namespace WorkoutApp
 
         private void OnRandomSongClicked(object sender, EventArgs e)
         {
-            var filteredSongs = _songs.Where(song => song != _previousSong).ToList();
-            if (filteredSongs.Any())
+            try
             {
-                Random random = new Random();
-                int index = random.Next(filteredSongs.Count);
-                var selectedSong = filteredSongs[index];
+                var filteredSongs = _songs.Where(song => song != _previousSong).ToList();
+                if (filteredSongs.Any())
+                {
+                    Random random = new Random();
+                    int index = random.Next(filteredSongs.Count);
+                    var selectedSong = filteredSongs[index];
 
-                string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist};{selectedSong.Title};{selectedSong.Genre}.mp3");
-                mediaElement.Source = new Uri(filePath);
-                mediaElement.Play();
+                    string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist};{selectedSong.Title};{selectedSong.Genre}.mp3");
 
-                nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
+                    if (File.Exists(filePath))
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            mediaElement.Source = new Uri(filePath);
+                            mediaElement.Play();
+                            nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
+                        });
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"Song(file) does not exist, filepath: {filePath}");
+                    }
 
-                _previousSong = selectedSong;
+                    _previousSong = selectedSong;
+                }
+                else
+                {
+                    Debug.WriteLine("No songs for the genre found.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // nothing when no songs found
+                Debug.WriteLine($"ERROR in playing song: {ex.Message}");
             }
         }
+
         private void PlaySong(Genre genre)
         {
             var filteredSongs = _songs.Where(song => song.Genre == genre && song != _previousSong).ToList();
