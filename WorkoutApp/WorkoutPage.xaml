@@ -17,7 +17,7 @@
             <Label
                     Text="Exercise Duration: " Padding="0,30,0,0"/>
             <StackLayout Orientation="Horizontal">
-                
+
                 <Entry 
                     x:Name="hoursDurationEntry" Placeholder="Hours" Keyboard="Numeric" />
                 <Label 
@@ -36,7 +36,7 @@
                 SemanticProperties.Hint="Adds Exercise to the Workout"
                 Clicked="OnAddExerciseClicked"
                 HorizontalOptions="Fill" />
-            
+
             <ListView x:Name="exerciseListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -44,7 +44,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
+
             <Label
                 Text="Workout Name: " />
             <Entry 
@@ -57,27 +57,42 @@
                 Clicked="OnSaveWorkoutClicked"
                 HorizontalOptions="Fill" />
 
-            <ListView x:Name="workoutListView" ItemSelected="OnWorkoutItemSelected">
+            <ListView x:Name="workoutListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding WorkoutName}" />
-                                <Label Text="{Binding TotalDuration}" />
-                                <ListView ItemsSource="{Binding Exercises}">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextCell Text="{Binding Name}" Detail="{Binding Duration}" />
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-
+                            <StackLayout Orientation="Horizontal">
+                                <!-- Checkbox -->
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" VerticalOptions="Center" CheckedChanged="OnCheckboxCheckedChanged"/>
+                                <!-- Workout Name and Duration -->
+                                <StackLayout>
+                                    <Label Text="{Binding WorkoutName}" VerticalOptions="Center"/>
+                                    <Label Text="{Binding TotalDuration}" VerticalOptions="Center"/>
+                                    <!-- Exercises -->
+                                    <StackLayout BindableLayout.ItemsSource="{Binding Exercises}">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <CheckBox IsVisible="False"/>
+                                                        <Label Text="{Binding Name}" VerticalOptions="Center"/>
+                                                    </StackLayout>
+                                                    <Label Text="{Binding Duration}" VerticalOptions="Center"/>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-                
+
+
+
+
+
 
             <Button
                 x:Name="beginWorkoutButton"
