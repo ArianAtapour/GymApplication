@@ -11,7 +11,7 @@ namespace SongPlayer
         Rock,
         Jazz,
         Indie,
-        RnB,
+        Phonk,
         DrumNBase,
         Pop,
         Rap
