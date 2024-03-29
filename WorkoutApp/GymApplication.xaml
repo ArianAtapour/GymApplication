@@ -17,6 +17,9 @@
             <Label x:Name="nowPlayingLabel" Text="" HorizontalOptions="Center" />
             <Label x:Name="totalSongsLabel" Text="Total Songs: Loading..." HorizontalOptions="Center" />
             <toolkit:MediaElement x:Name="mediaElement" WidthRequest="400" HeightRequest="300" />
+            <Label x:Name="debugBox" Text="Debugging Info:" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

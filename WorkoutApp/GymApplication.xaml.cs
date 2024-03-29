@@ -173,6 +173,7 @@ namespace WorkoutApp
 
             if (!Directory.Exists(songsDirectory))
             {
+                debugBox.Text = "Songs directory does not exist.";
                 return;
             }
 
@@ -180,19 +181,20 @@ namespace WorkoutApp
 
             foreach (string songFile in songFiles)
             {
-
                 try
                 {
                     if (Path.GetExtension(songFile) != ".mp3")
                     {
+                        debugBox.Text += $"\nSkipped file {songFile} due to incorrect extension.";
                         continue;
                     }
 
                     string fileName = Path.GetFileNameWithoutExtension(songFile);
-                    string[] parts = fileName.Split(';');
+                    string[] parts = fileName.Split(',');
 
                     if (parts.Length != 3)
                     {
+                        debugBox.Text += $"\nSkipped file {songFile} due to incorrect format.";
                         continue;
                     }
 
@@ -201,6 +203,7 @@ namespace WorkoutApp
 
                     if (!Enum.TryParse(parts[2], out Genre genre))
                     {
+                        debugBox.Text += $"\nSkipped file {songFile} due to incorrect genre.";
                         continue;
                     }
 
@@ -208,12 +211,14 @@ namespace WorkoutApp
                 }
                 catch (Exception ex)
                 {
-
+                    debugBox.Text += $"\nError processing file {songFile}: {ex.Message}";
                 }
             }
 
             totalSongsLabel.Text = $"Total Songs: {_songs.Count}";
+            debugBox.Text += $"\nTotal Songs: {_songs.Count}";
         }
+
 
         private void OnRandomSongClicked(object sender, EventArgs e)
         {
