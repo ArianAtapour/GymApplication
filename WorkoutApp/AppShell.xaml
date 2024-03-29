@@ -8,7 +8,7 @@
     Title="WorkoutApp">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:WorkoutPage}"
+        ContentTemplate="{DataTemplate local:WeatherInput}"
         Route="WorkoutPage" />
 
 </Shell>

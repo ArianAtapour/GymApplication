@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using WorkoutApp;
 
 namespace SongPlayer
 {
@@ -11,13 +12,18 @@ namespace SongPlayer
     {
         public string weatherCondition;
         public int weatherCode;
+        private WeatherInput weatherInput;
         public const string apiKey = "e83bddd9808ae125d3d77a6fe13cbcfe";
-        public string country = "Netherlands";
-        public string city = "Emmen";
+        public string country { get; set; }
+        public string city { get; set; }
 
-        public WeatherDataModule() { }
+        public WeatherDataModule() {
+            weatherInput = new WeatherInput();
+        }
         public async Task<string> SearchCsvAsync(string filePath, string country, string city, string weatherConditions)
         {
+            city = weatherInput.City;
+            country = weatherInput.Country;
             if (!File.Exists(filePath))
             {
                 throw new FileNotFoundException($"CSV file not found: {filePath}");
