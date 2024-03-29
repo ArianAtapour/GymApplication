@@ -14,16 +14,15 @@ namespace SongPlayer
         public int weatherCode;
         private WeatherInput weatherInput;
         public const string apiKey = "e83bddd9808ae125d3d77a6fe13cbcfe";
-        public string country { get; set; }
-        public string city { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
 
-        public WeatherDataModule() {
-            weatherInput = new WeatherInput();
+        public WeatherDataModule()
+        {
+
         }
         public async Task<string> SearchCsvAsync(string filePath, string country, string city, string weatherConditions)
         {
-            city = weatherInput.City;
-            country = weatherInput.Country;
             if (!File.Exists(filePath))
             {
                 throw new FileNotFoundException($"CSV file not found: {filePath}");
@@ -78,12 +77,12 @@ namespace SongPlayer
 
             try
             {
-                var result = await SearchCsvAsync(filePath, country, city, weatherCondition);
+                var result = await SearchCsvAsync(filePath, Country, City, weatherCondition);
 
                 if (result != null)
                 {
                     return result;
-                    //await DisplayAlert("Result", $"Found: country: {result} ", "OK");
+                    //await DisplayAlert("Result", $"Found: Country: {result} ", "OK");
                 }
                 else
                 {
@@ -99,7 +98,7 @@ namespace SongPlayer
         }
         async Task GetWeatherAsync()
         {
-            string url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}";
+            string url = $"https://api.openweathermap.org/data/2.5/weather?q={City}&appid={apiKey}";
 
             using HttpClient client = new HttpClient();
             using HttpResponseMessage response = await client.GetAsync(url);

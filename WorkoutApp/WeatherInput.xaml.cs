@@ -8,26 +8,23 @@ public partial class WeatherInput : ContentPage
     public string Country { get; set; }
     public string City { get; set; }
     public WeatherInput()
-	{
+    {
         weatherData = new WeatherDataModule();
         InitializeComponent();
     }
 
-    private void OnButtonClicked(object sender, EventArgs e)
+    private async void OnButtonClicked(object sender, EventArgs e)
     {
-        this.Country = EntryCountry.Text;
-        this.City = EntryCity.Text;
+        weatherData.Country = EntryCountry.Text;
+        weatherData.City = EntryCity.Text;
 
-        if (string.IsNullOrEmpty(this.Country) || string.IsNullOrEmpty(this.City))
+        if (string.IsNullOrEmpty(EntryCountry.Text) || string.IsNullOrEmpty(EntryCity.Text))
         {
-            DisplayAlert("Error","Country and City cannot be empty", "OK");
+            await DisplayAlert("Error", "Country and City cannot be empty", "OK");
         }
         else
         {
-            //weatherData.country = this.Country;
-            //weatherData.city = this.City;
-            DisplayAlert("Working", $"Country and City: {this.Country} {this.City}", "OK");
-            //Needs to redirect to Workout app
+            await Shell.Current.Navigation.PushAsync(new WorkoutPage());
         }
     }
 }
