@@ -94,13 +94,13 @@ namespace WorkoutApp
             //Deleay the change of the song so you give the UI proper time to update
             await Task.Delay(100);
             //Play me a random song
-            OnRandomSongClicked(null, null);
+            GetGenre();
         }
 
         private void ChangeSong()
         {
             //Play a random song
-            OnRandomSongClicked(null, null);
+            GetGenre();
         }
 
         private void Start_Click(object sender, EventArgs e)
@@ -285,8 +285,7 @@ namespace WorkoutApp
 
         private async void GetGenre()
         {
-            string genre;
-            genre = await _weatherDataModule.SearchForGenre();
+            string genre = await WeatherDataModule.Instance.SearchForGenre();
 
             if (Enum.TryParse(genre, out Genre parsedGenre))
             {
@@ -294,6 +293,7 @@ namespace WorkoutApp
             }
             else
             {
+
             }
         }
 

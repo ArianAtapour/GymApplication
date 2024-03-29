@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -10,12 +12,27 @@ namespace SongPlayer
 {
     internal class WeatherDataModule
     {
+        private static WeatherDataModule instance;
+
+        public static WeatherDataModule Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new WeatherDataModule();
+                }
+                return instance;
+            }
+        }
+
         public string weatherCondition;
         public int weatherCode;
         private WeatherInput weatherInput;
         public const string apiKey = "e83bddd9808ae125d3d77a6fe13cbcfe";
         public string Country { get; set; }
         public string City { get; set; }
+        public static string CityChosen { get; set; }
 
         public WeatherDataModule()
         {
@@ -63,6 +80,7 @@ namespace SongPlayer
 
         public async Task<string> SearchForGenre()
         {
+
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
             string targetPath = Path.GetDirectoryName(basePath);
 
@@ -81,24 +99,29 @@ namespace SongPlayer
 
                 if (result != null)
                 {
+                    Debug.WriteLine(result);
                     return result;
                     //await DisplayAlert("Result", $"Found: Country: {result} ", "OK");
                 }
                 else
                 {
+                    Debug.WriteLine("NOTHING FOUND");
                     return "nothing found";
                     //await DisplayAlert("Result", "Entry not found.", "OK");
                 }
             }
             catch (Exception ex)
             {
+                Debug.WriteLine($"CSV ERROR SEARCHING {ex.Message}");
                 return ex.ToString();
                 //Console.WriteLine($"Error searching CSV: {ex.Message}");
             }
         }
-        async Task GetWeatherAsync()
+        public async Task GetWeatherAsync()
         {
-            string url = $"https://api.openweathermap.org/data/2.5/weather?q={City}&appid={apiKey}";
+            Debug.WriteLine(this.City);
+
+            string url = $"https://api.openweathermap.org/data/2.5/weather?q={this.City}&appid={apiKey}";
 
             using HttpClient client = new HttpClient();
             using HttpResponseMessage response = await client.GetAsync(url);
@@ -113,16 +136,16 @@ namespace SongPlayer
                     // Access the weather description
                     this.weatherCondition = document.RootElement.GetProperty("weather").EnumerateArray().First().GetProperty("main").GetString();
 
-                    Console.WriteLine($"Weather description: {this.weatherCondition}");
+                    Debug.WriteLine($"Weather description: {this.weatherCondition}");
                 }
                 catch (JsonException ex)
                 {
-                    Console.WriteLine($"Error parsing JSON: {ex.Message}");
+                    Debug.WriteLine($"Error parsing JSON: {ex.Message}");
                 }
             }
             else
             {
-                Console.WriteLine($"Error getting weather: {response.StatusCode}");
+                Debug.WriteLine($"Error getting weather: {response.StatusCode}" + url);
             }
         }
     }

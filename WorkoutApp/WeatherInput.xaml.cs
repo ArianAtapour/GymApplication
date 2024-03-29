@@ -1,4 +1,5 @@
 using SongPlayer;
+using System.Diagnostics;
 
 namespace WorkoutApp;
 
@@ -21,8 +22,11 @@ public partial class WeatherInput : ContentPage
         }
         else
         {
-            weatherData.Country = EntryCountry.Text;
-            weatherData.City = EntryCity.Text;
+            WeatherDataModule.Instance.Country = EntryCountry.Text;
+            WeatherDataModule.Instance.City = EntryCity.Text;
+            Debug.WriteLine(WeatherDataModule.Instance.Country + " " + WeatherDataModule.Instance.City);
+            await WeatherDataModule.Instance.GetWeatherAsync();
+
             await Shell.Current.Navigation.PushAsync(new WorkoutPage());
         }
     }
