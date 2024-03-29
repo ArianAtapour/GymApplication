@@ -108,6 +108,7 @@ namespace WorkoutApp
             exerciseLabel.Text = currentExercise?.Name + " STARTED";
             GetGenre();
             timer.Start();
+            ChangeSong();
         }
 
         private void Pause_Click(object sender, EventArgs e)
@@ -231,7 +232,7 @@ namespace WorkoutApp
                     int index = random.Next(filteredSongs.Count);
                     var selectedSong = filteredSongs[index];
 
-                    string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist};{selectedSong.Title};{selectedSong.Genre}.mp3");
+                    string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist},{selectedSong.Title},{selectedSong.Genre}.mp3");
 
                     if (File.Exists(filePath))
                     {
@@ -269,7 +270,7 @@ namespace WorkoutApp
                 int index = random.Next(filteredSongs.Count);
                 var selectedSong = filteredSongs[index];
 
-                string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist};{selectedSong.Title};{selectedSong.Genre}.mp3");
+                string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist},{selectedSong.Title},{selectedSong.Genre}.mp3");
                 nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
                 mediaElement.Source = new Uri(filePath);
                 mediaElement.Play();
