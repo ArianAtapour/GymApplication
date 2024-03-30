@@ -18,7 +18,7 @@ namespace WorkoutApp
         private TimeSpan exerciseTime;
         private System.Timers.Timer timer;
         private readonly WeatherDataModule _weatherDataModule;
-        private readonly List<Song> _songs = new List<Song>();
+        private List<Song> _songs = new List<Song>();
         private Song _previousSong;
 
         public GymApplication(List<Workout> workouts)
@@ -32,7 +32,7 @@ namespace WorkoutApp
                 currentExercise = currentWorkout.Exercises.FirstOrDefault();
             UpdateUI();
             _weatherDataModule = new WeatherDataModule();
-            LoadSongs();
+            LoadSongsAsync();
 
             timer = new System.Timers.Timer(1000);
             timer.Elapsed += Timer_Elapsed;
@@ -88,13 +88,11 @@ namespace WorkoutApp
             }
         }
 
-        // Change the method to asynchronous to make sure it's awaited properly
         private async Task ChangeSongAsync()
         {
-            //Deleay the change of the song so you give the UI proper time to update
             await Task.Delay(100);
             //Play me a random song
-            GetGenre();
+            await GetGenre();
         }
 
         private void ChangeSong()
@@ -103,39 +101,40 @@ namespace WorkoutApp
             GetGenre();
         }
 
-        private void Start_Click(object sender, EventArgs e)
+        private async void Start_Click(object sender, EventArgs e)
         {
-            exerciseLabel.Text = currentExercise?.Name + " STARTED";
-            GetGenre();
+            exerciseLabel.Text = $"{currentExercise?.Name} STARTED";
             timer.Start();
-            ChangeSong();
+            await ChangeSongAsync(); 
         }
 
         private void Pause_Click(object sender, EventArgs e)
         {
-            exerciseLabel.Text = currentExercise?.Name + " PAUSED";
-            mediaElement.Pause();
+            exerciseLabel.Text = $"{currentExercise?.Name} PAUSED";
             timer.Stop();
+            Device.InvokeOnMainThreadAsync(() => mediaElement.Pause());
         }
 
         private void Stop_Click(object sender, EventArgs e)
         {
             timer.Stop();
-            mediaElement.Stop();
+            Device.InvokeOnMainThreadAsync(() =>
+            {
+                mediaElement.Stop();
+                exerciseLabel.Text = "WORKOUT FINISHED";
+                timerLabel.Text = "00:00:00";
+            });
+
             workoutIndex = 0;
             exerciseIndex = 0;
             currentWorkout = workouts.FirstOrDefault();
             if (currentWorkout != null)
-                currentExercise = currentWorkout.Exercises.FirstOrDefault();
-            exerciseTime = currentExercise?.Duration ?? TimeSpan.Zero;
-            UpdateUI();
-
-            Device.InvokeOnMainThreadAsync(() =>
             {
-                exerciseLabel.Text = "WORKOUT FINISHED";
-                timerLabel.Text = "00:00:00";
-            });
+                currentExercise = currentWorkout.Exercises.FirstOrDefault();
+            }
+            UpdateUI(); 
         }
+
 
         private void UpdateUI()
         {
@@ -168,57 +167,48 @@ namespace WorkoutApp
             return targetPath;
         }
 
-        private void LoadSongs()
+        private async Task LoadSongsAsync()
         {
             string songsDirectory = Path.Combine(GetProjectDirectory(), "songs");
-
             if (!Directory.Exists(songsDirectory))
             {
-                debugBox.Text = "Songs directory does not exist.";
+                await Device.InvokeOnMainThreadAsync(() =>
+                {
+                    debugBox.Text = "Songs directory does not exist.";
+                });
                 return;
             }
 
-            string[] songFiles = Directory.GetFiles(songsDirectory);
+            string[] songFiles = await Task.Run(() => Directory.GetFiles(songsDirectory)).ConfigureAwait(false);
 
+            var tempSongsList = new List<Song>();
             foreach (string songFile in songFiles)
             {
-                try
+                //We assume the user uploads an incorrect format, skip
+                if (Path.GetExtension(songFile) != ".mp3")
                 {
-                    if (Path.GetExtension(songFile) != ".mp3")
-                    {
-                        debugBox.Text += $"\nSkipped file {songFile} due to incorrect extension.";
-                        continue;
-                    }
-
-                    string fileName = Path.GetFileNameWithoutExtension(songFile);
-                    string[] parts = fileName.Split(',');
-
-                    if (parts.Length != 3)
-                    {
-                        debugBox.Text += $"\nSkipped file {songFile} due to incorrect format.";
-                        continue;
-                    }
-
-                    string artist = parts[0];
-                    string title = parts[1];
-
-                    if (!Enum.TryParse(parts[2], out Genre genre))
-                    {
-                        debugBox.Text += $"\nSkipped file {songFile} due to incorrect genre.";
-                        continue;
-                    }
-
-                    _songs.Add(new Song { Title = title, Artist = artist, Genre = genre });
+                    continue; 
                 }
-                catch (Exception ex)
+
+                //The user puts the wrong naming on the song, skip
+                string fileName = Path.GetFileNameWithoutExtension(songFile);
+                string[] parts = fileName.Split(',');
+                if (parts.Length != 3 || !Enum.TryParse(parts[2], true, out Genre genre))
                 {
-                    debugBox.Text += $"\nError processing file {songFile}: {ex.Message}";
+                    continue; 
                 }
+
+                tempSongsList.Add(new Song { Title = parts[1], Artist = parts[0], Genre = genre });
             }
 
-            totalSongsLabel.Text = $"Total Songs: {_songs.Count}";
-            debugBox.Text += $"\nTotal Songs: {_songs.Count}";
+            await Device.InvokeOnMainThreadAsync(() =>
+            {
+                _songs = tempSongsList;
+                totalSongsLabel.Text = $"Total Songs: {_songs.Count}";
+                debugBox.Text += $"\nLoaded {_songs.Count} songs.";
+            });
         }
+
 
 
         private void OnRandomSongClicked(object sender, EventArgs e)
@@ -261,7 +251,7 @@ namespace WorkoutApp
             }
         }
 
-        private void PlaySong(Genre genre)
+        private async Task PlaySong(Genre genre)
         {
             var filteredSongs = _songs.Where(song => song.Genre == genre && song != _previousSong).ToList();
             if (filteredSongs.Any())
@@ -271,29 +261,31 @@ namespace WorkoutApp
                 var selectedSong = filteredSongs[index];
 
                 string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist},{selectedSong.Title},{selectedSong.Genre}.mp3");
-                nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
-                mediaElement.Source = new Uri(filePath);
-                mediaElement.Play();
+                await Device.InvokeOnMainThreadAsync(() =>
+                {
+                    nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
+                    mediaElement.Source = new Uri(filePath);
+                    mediaElement.Play();
+                });
 
                 _previousSong = selectedSong;
             }
             else
             {
-                // nothing when no songs found
+                
             }
         }
 
-        private async void GetGenre()
+        private async Task GetGenre()
         {
-            string genre = await WeatherDataModule.Instance.SearchForGenre();
+            string genre = await WeatherDataModule.Instance.SearchForGenre(); 
 
             if (Enum.TryParse(genre, out Genre parsedGenre))
             {
-                PlaySong(parsedGenre);
+                await PlaySong(parsedGenre); 
             }
             else
             {
-
             }
         }
 
