@@ -251,19 +251,30 @@ namespace WorkoutApp
             }
         }
 
+        //PLINQ
+        private async Task<IEnumerable<Song>> FilterSongsAsync(Genre genre)
+        {
+            return await Task.Run(() =>
+            {
+                return _songs.AsParallel()
+                             .Where(song => song.Genre == genre && song != _previousSong)
+                             .ToList();
+            });
+        }
+
         private async Task PlaySong(Genre genre)
         {
-            var filteredSongs = _songs.Where(song => song.Genre == genre && song != _previousSong).ToList();
+            var filteredSongs = await FilterSongsAsync(genre);
             if (filteredSongs.Any())
             {
                 Random random = new Random();
-                int index = random.Next(filteredSongs.Count);
-                var selectedSong = filteredSongs[index];
+                int index = random.Next(filteredSongs.Count());
+                var selectedSong = filteredSongs.ElementAt(index);
 
                 string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist},{selectedSong.Title},{selectedSong.Genre}.mp3");
                 await Device.InvokeOnMainThreadAsync(() =>
                 {
-                    nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
+                    nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title} - {selectedSong.Genre}";
                     mediaElement.Source = new Uri(filePath);
                     mediaElement.Play();
                 });
@@ -278,6 +289,14 @@ namespace WorkoutApp
 
         private async Task GetGenre()
         {
+            await WeatherDataModule.Instance.GetWeatherAsync();
+            string weatherString = WeatherDataModule.Instance.weatherCondition;
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                weatherLabel.Text = $"Current weather: {weatherString}";
+            });
+
+
             string genre = await WeatherDataModule.Instance.SearchForGenre();
 
             if (Enum.TryParse(genre, out Genre parsedGenre))
@@ -286,8 +305,10 @@ namespace WorkoutApp
             }
             else
             {
+
             }
         }
+
 
 
     }
