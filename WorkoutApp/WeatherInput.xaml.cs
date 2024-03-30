@@ -27,7 +27,18 @@ public partial class WeatherInput : ContentPage
             Debug.WriteLine(WeatherDataModule.Instance.Country + " " + WeatherDataModule.Instance.City);
             await WeatherDataModule.Instance.GetWeatherAsync();
 
-            await Shell.Current.Navigation.PushAsync(new WorkoutPage());
+            string result = await WeatherDataModule.Instance.SearchForGenre();
+
+            if (result == "nothing found")
+            {
+                await DisplayAlert("Error", "City or country not found !", "OK");
+            }
+            else
+            {
+                await Shell.Current.Navigation.PushAsync(new WorkoutPage());
+            }
         }
     }
+
+
 }

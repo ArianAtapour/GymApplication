@@ -75,7 +75,15 @@ namespace SongPlayer
                         let parts = line.Split(',')
                         where parts.Length >= 2 && parts[0] == country && parts[1] == city
                         select parts[weatherCode]).FirstOrDefault();
-            return data;
+
+            if (data != null)
+            {
+                return data;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public async Task<string> SearchForGenre()
