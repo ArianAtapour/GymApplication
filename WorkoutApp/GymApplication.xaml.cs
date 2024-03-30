@@ -105,7 +105,7 @@ namespace WorkoutApp
         {
             exerciseLabel.Text = $"{currentExercise?.Name} STARTED";
             timer.Start();
-            await ChangeSongAsync(); 
+            await ChangeSongAsync();
         }
 
         private void Pause_Click(object sender, EventArgs e)
@@ -132,7 +132,7 @@ namespace WorkoutApp
             {
                 currentExercise = currentWorkout.Exercises.FirstOrDefault();
             }
-            UpdateUI(); 
+            UpdateUI();
         }
 
 
@@ -174,7 +174,7 @@ namespace WorkoutApp
             {
                 await Device.InvokeOnMainThreadAsync(() =>
                 {
-                    debugBox.Text = "Songs directory does not exist.";
+                    //debugBox.Text = "Songs directory does not exist.";
                 });
                 return;
             }
@@ -187,7 +187,7 @@ namespace WorkoutApp
                 //We assume the user uploads an incorrect format, skip
                 if (Path.GetExtension(songFile) != ".mp3")
                 {
-                    continue; 
+                    continue;
                 }
 
                 //The user puts the wrong naming on the song, skip
@@ -195,7 +195,7 @@ namespace WorkoutApp
                 string[] parts = fileName.Split(',');
                 if (parts.Length != 3 || !Enum.TryParse(parts[2], true, out Genre genre))
                 {
-                    continue; 
+                    continue;
                 }
 
                 tempSongsList.Add(new Song { Title = parts[1], Artist = parts[0], Genre = genre });
@@ -205,7 +205,7 @@ namespace WorkoutApp
             {
                 _songs = tempSongsList;
                 totalSongsLabel.Text = $"Total Songs: {_songs.Count}";
-                debugBox.Text += $"\nLoaded {_songs.Count} songs.";
+                //debugBox.Text += $"\nLoaded {_songs.Count} songs.";
             });
         }
 
@@ -272,17 +272,17 @@ namespace WorkoutApp
             }
             else
             {
-                
+
             }
         }
 
         private async Task GetGenre()
         {
-            string genre = await WeatherDataModule.Instance.SearchForGenre(); 
+            string genre = await WeatherDataModule.Instance.SearchForGenre();
 
             if (Enum.TryParse(genre, out Genre parsedGenre))
             {
-                await PlaySong(parsedGenre); 
+                await PlaySong(parsedGenre);
             }
             else
             {

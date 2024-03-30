@@ -10,12 +10,12 @@ public partial class WeatherInput : ContentPage
     public string City { get; set; }
     public WeatherInput()
     {
-        weatherData = new WeatherDataModule();
         InitializeComponent();
     }
 
     private async void OnButtonClicked(object sender, EventArgs e)
     {
+        weatherData = new WeatherDataModule();
         if (string.IsNullOrEmpty(EntryCountry.Text) || string.IsNullOrEmpty(EntryCity.Text))
         {
             await DisplayAlert("Error", "Country and City cannot be empty", "OK");
