@@ -20,7 +20,10 @@ namespace WorkoutApp
         private readonly WeatherDataModule _weatherDataModule;
         private List<Song> _songs = new List<Song>();
         private Song _previousSong;
-
+        //Successor of Semaphore way better
+        private SemaphoreSlim loadSongsSemaphore = new SemaphoreSlim(1, 1);
+        //1 means the initial count is 1 the number of entries that can be granted concurently by the semaphore
+        //the other 1 is the maximum count and that means the maxium amount of entries that can be granted by the semaphore
         public GymApplication(List<Workout> workouts)
         {
             InitializeComponent();
@@ -166,47 +169,59 @@ namespace WorkoutApp
             }
             return targetPath;
         }
-
         private async Task LoadSongsAsync()
         {
-            string songsDirectory = Path.Combine(GetProjectDirectory(), "songs");
-            if (!Directory.Exists(songsDirectory))
+            //Hey ! Wait to enter the semaphore before you proceed
+            await loadSongsSemaphore.WaitAsync();
+            try
             {
+                string songsDirectory = Path.Combine(GetProjectDirectory(), "songs");
+                // Check if the songs directory exists
+                if (!Directory.Exists(songsDirectory))
+                {
+                    await Device.InvokeOnMainThreadAsync(() =>
+                    {
+                        Debug.WriteLine("SONGS DIRECTORY NOT FOUND !");
+                    });
+                    return;
+                }
+
+                // Get all song files in the directory
+                string[] songFiles = await Task.Run(() => Directory.GetFiles(songsDirectory)).ConfigureAwait(false);
+
+                var tempSongsList = new List<Song>();
+                foreach (string songFile in songFiles)
+                {
+                    if (Path.GetExtension(songFile) != ".mp3")
+                    {
+                        //Skip the files that are not mp3 (we assume the user does not know what they are doing)
+                        continue;
+                    }
+                    string fileName = Path.GetFileNameWithoutExtension(songFile);
+                    string[] parts = fileName.Split(',');
+                    if (parts.Length != 3 || !Enum.TryParse(parts[2], true, out Genre genre))
+                    {
+                        //Files do not respect the naming convention ? Skip them
+                        continue;
+                    }
+
+                    //Add the song to the tempSongList
+                    tempSongsList.Add(new Song { Title = parts[1], Artist = parts[0], Genre = genre });
+                }
+
+                //Update the song
                 await Device.InvokeOnMainThreadAsync(() =>
                 {
-                    //debugBox.Text = "Songs directory does not exist.";
+                    _songs = tempSongsList;
+                    totalSongsLabel.Text = $"Total Songs: {_songs.Count}";
+                    //Debug.WriteLine($"Total Songs: {_songs.Count}");
                 });
-                return;
             }
-
-            string[] songFiles = await Task.Run(() => Directory.GetFiles(songsDirectory)).ConfigureAwait(false);
-
-            var tempSongsList = new List<Song>();
-            foreach (string songFile in songFiles)
+            finally
             {
-                //We assume the user uploads an incorrect format, skip
-                if (Path.GetExtension(songFile) != ".mp3")
-                {
-                    continue;
-                }
-
-                //The user puts the wrong naming on the song, skip
-                string fileName = Path.GetFileNameWithoutExtension(songFile);
-                string[] parts = fileName.Split(',');
-                if (parts.Length != 3 || !Enum.TryParse(parts[2], true, out Genre genre))
-                {
-                    continue;
-                }
-
-                tempSongsList.Add(new Song { Title = parts[1], Artist = parts[0], Genre = genre });
+                //AAAAnd release from the semaphore
+                loadSongsSemaphore.Release();
             }
-
-            await Device.InvokeOnMainThreadAsync(() =>
-            {
-                _songs = tempSongsList;
-                totalSongsLabel.Text = $"Total Songs: {_songs.Count}";
-                //debugBox.Text += $"\nLoaded {_songs.Count} songs.";
-            });
         }
 
 
