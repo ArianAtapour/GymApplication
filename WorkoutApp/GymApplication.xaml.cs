@@ -91,6 +91,7 @@ namespace WorkoutApp
             }
         }
 
+        //TPL(async&await)
         private async Task ChangeSongAsync()
         {
             await Task.Delay(100);
@@ -169,6 +170,8 @@ namespace WorkoutApp
             }
             return targetPath;
         }
+
+        //TPL(async&await) and semaphore implementation and Asynchronous I/O
         private async Task LoadSongsAsync()
         {
             //Hey ! Wait to enter the semaphore before you proceed
@@ -186,6 +189,10 @@ namespace WorkoutApp
                     return;
                 }
 
+                /*
+                 * Asynchronous I/O
+                 * Loading songs from the directory asynchronously and updating UI elements in response to I/O operations
+                 */
                 // Get all song files in the directory
                 string[] songFiles = await Task.Run(() => Directory.GetFiles(songsDirectory)).ConfigureAwait(false);
 
@@ -225,52 +232,12 @@ namespace WorkoutApp
         }
 
 
-
-        private void OnRandomSongClicked(object sender, EventArgs e)
-        {
-            try
-            {
-                var filteredSongs = _songs.Where(song => song != _previousSong).ToList();
-                if (filteredSongs.Any())
-                {
-                    Random random = new Random();
-                    int index = random.Next(filteredSongs.Count);
-                    var selectedSong = filteredSongs[index];
-
-                    string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist},{selectedSong.Title},{selectedSong.Genre}.mp3");
-
-                    if (File.Exists(filePath))
-                    {
-                        Device.BeginInvokeOnMainThread(() =>
-                        {
-                            mediaElement.Source = new Uri(filePath);
-                            mediaElement.Play();
-                            nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title}";
-                        });
-                    }
-                    else
-                    {
-                        Debug.WriteLine($"Song(file) does not exist, filepath: {filePath}");
-                    }
-
-                    _previousSong = selectedSong;
-                }
-                else
-                {
-                    Debug.WriteLine("No songs for the genre found.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"ERROR in playing song: {ex.Message}");
-            }
-        }
-
         //PLINQ
         private async Task<IEnumerable<Song>> FilterSongsAsync(Genre genre)
         {
             return await Task.Run(() =>
             {
+                //PLINQ
                 return _songs.AsParallel()
                              .Where(song => song.Genre == genre && song != _previousSong)
                              .ToList();
@@ -287,6 +254,7 @@ namespace WorkoutApp
                 var selectedSong = filteredSongs.ElementAt(index);
 
                 string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist},{selectedSong.Title},{selectedSong.Genre}.mp3");
+                Debug.WriteLine($"Attempting to play song: {filePath}");
                 await Device.InvokeOnMainThreadAsync(() =>
                 {
                     nowPlayingLabel.Text = $"Now playing: {selectedSong.Artist} - {selectedSong.Title} - {selectedSong.Genre}";
@@ -298,7 +266,7 @@ namespace WorkoutApp
             }
             else
             {
-
+                Debug.WriteLine("No songs found for the selected genre.");
             }
         }
 
@@ -320,7 +288,7 @@ namespace WorkoutApp
             }
             else
             {
-
+                Debug.WriteLine("Failed to parse genre.");
             }
         }
 

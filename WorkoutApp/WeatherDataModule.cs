@@ -78,6 +78,7 @@ namespace SongPlayer
 
             if (data != null)
             {
+                Debug.WriteLine(data);
                 return data;
             }
             else

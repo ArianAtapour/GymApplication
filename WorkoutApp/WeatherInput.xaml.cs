@@ -22,8 +22,14 @@ public partial class WeatherInput : ContentPage
         }
         else
         {
-            WeatherDataModule.Instance.Country = EntryCountry.Text;
-            WeatherDataModule.Instance.City = EntryCity.Text;
+            var country = EntryCountry.Text.ToLowerInvariant();
+            country = char.ToUpperInvariant(country[0]) + country.Substring(1);
+
+            var city = EntryCity.Text.ToLowerInvariant();
+            city = char.ToUpperInvariant(city[0]) + city.Substring(1);
+
+            WeatherDataModule.Instance.Country = country;
+            WeatherDataModule.Instance.City = city;
             Debug.WriteLine(WeatherDataModule.Instance.Country + " " + WeatherDataModule.Instance.City);
             await WeatherDataModule.Instance.GetWeatherAsync();
 
@@ -39,6 +45,7 @@ public partial class WeatherInput : ContentPage
             }
         }
     }
+
 
 
 }

@@ -12,7 +12,7 @@ namespace SongPlayer
         Jazz,
         Indie,
         Phonk,
-        DrumNBase,
+        DrumAndBass,
         Pop,
         Rap
     }
