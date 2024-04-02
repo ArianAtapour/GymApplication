@@ -254,6 +254,7 @@ namespace WorkoutApp
                 var selectedSong = filteredSongs.ElementAt(index);
 
                 string filePath = Path.Combine(GetProjectDirectory(), $"songs/{selectedSong.Artist},{selectedSong.Title},{selectedSong.Genre}.mp3");
+                Debug.WriteLine($"Attempting to play song: {filePath} for genre: {genre}");
                 Debug.WriteLine($"Attempting to play song: {filePath}");
                 await Device.InvokeOnMainThreadAsync(() =>
                 {
