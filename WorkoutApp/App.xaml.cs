@@ -1,4 +1,6 @@
-﻿namespace WorkoutApp
+﻿using System.Diagnostics;
+
+namespace WorkoutApp
 {
     public partial class App : Application
     {
@@ -7,6 +9,7 @@
             InitializeComponent();
 
             MainPage = new AppShell();
+            Debug.WriteLine("App constructor called.");
         }
     }
 }

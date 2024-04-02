@@ -11,6 +11,7 @@ public partial class WeatherInput : ContentPage
     public WeatherInput()
     {
         InitializeComponent();
+        Debug.WriteLine("WeatherInput constructor called.");
     }
 
     private async void OnButtonClicked(object sender, EventArgs e)
