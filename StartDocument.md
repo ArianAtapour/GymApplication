@@ -42,7 +42,7 @@ The project is done, when the following requirements are met:
 - All the must have functionalities have been implemented
 
 ## Class Diagram
-![diagram](diagram.png)
+![diagram](ClassDiagram.png)
 
 ## About the developers
 | Name               | Student email                                                |
