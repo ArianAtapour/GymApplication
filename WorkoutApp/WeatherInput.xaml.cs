@@ -5,7 +5,6 @@ namespace WorkoutApp;
 
 public partial class WeatherInput : ContentPage
 {
-    private WeatherDataModule weatherData;
     public string Country { get; set; }
     public string City { get; set; }
     public WeatherInput()
