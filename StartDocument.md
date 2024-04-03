@@ -4,7 +4,7 @@
 This document serves as a start document and offers an overview for the practical assignment for the "Threading in C#" course. The purpose of this course is to teach students how to utilise different multi-threading techniques.
 
 ## Application description
-The gym music application is going to be a desktop app which purpose is to play music based on the workout and weather outside. So, if you do pushups and it's raining for example, a certain song will be played. It will also display a timer and within that timer play the respective song. The weather it's going to be fetched from a weather API (at least 100.000 entries) and the workouts are going to be introduced by the user as well as their duration. The UI will have two parts. Once it's going to be the user input which it's gonna take the workout type and the time to do the workout. The second part of the UI is after data has been inserted, it's gonna show a screen with the workout and time. Once the user presses start, the workout begins. He can also press pause to pause the workout or stop to reset the workout from the beginning.
+The gym music application is going to be a desktop app running only on Windows machines which purpose is to play music based on the workout and weather outside. So, if you do pushups and it's raining for example, a certain song will be played. It will also display a timer and within that timer play the respective song. The weather it's going to be fetched from a weather API (at least 100.000 entries) and the workouts are going to be introduced by the user as well as their duration. The UI will have two parts. Once it's going to be the user input which it's gonna take the workout type and the time to do the workout. The second part of the UI is after data has been inserted, it's gonna show a screen with the workout and time. Once the user presses start, the workout begins. He can also press pause to pause the workout or stop to reset the workout from the beginning.
 ## Features
 - User input
 - Fetching data from a weather API
@@ -19,10 +19,10 @@ The gym music application is going to be a desktop app which purpose is to play 
 | Must have     | API Fetching, Filtering of data, GUI, Multi-threading|     
 | Should have   | Stop and Pause of workout       |
 | Could have    | List of previous workouts       |
-| Won't have    | User registration, Multiple Language support        |
+| Won't have    | User registration, Multiple Language support, Multiple OS support(it runs only on Windows)        |
 
 
-## Technology & Threading techniques used
+## Technology
 As part of the course and in order to implement some of the features, the project will use a variety of threading techniques. These include the following:
 - GitHub
 
@@ -30,10 +30,11 @@ As part of the course and in order to implement some of the features, the projec
 
 - MVVM
 
-## Multi-threading techniques used
-- PLINQ is used for data processing and asynchronous programming (API fetching)
-- Thread pool which is used for batch-processing tasks
-- Lock, monitor, mutex, semaphore,etc. which it's going to be used that any shared data is thread safe
+## Threading techniques used
+- TPL (Task Parallel Library/Async & Await)
+- Semaphore (SemaphoreSlim)
+- PLINQ (Parallel LINQ)
+- Asynchronous I/O
 
 ## Definition of done
 The project is done, when the following requirements are met:
