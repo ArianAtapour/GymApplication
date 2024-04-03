@@ -9,7 +9,7 @@
             <Entry x:Name="EntryCountry" Placeholder="Enter Country" />
             <Label Text="City:" HorizontalOptions="Start" Margin="10,0,0,0" />
             <Entry x:Name="EntryCity" Placeholder="Enter City" />
-            <Button Text="Get Data" Clicked="OnButtonClicked"/>
+            <Button Text="Next" Clicked="OnButtonClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
